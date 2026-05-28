@@ -113,5 +113,11 @@ publishing {
 }
 
 signing {
+    required {
+        project.hasProperty("signing.keyId") ||
+        project.hasProperty("signingKey") ||
+        project.hasProperty("signing.secretKeyRingFile")
+    }
+
     sign publishing.publications.maven
 }
